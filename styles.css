@@ -1,0 +1,22 @@
+body{
+    background-image: linear-gradient(to bottom,#3ebdb4,#fff4ea);
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(50%);
+    padding-top: 1%;
+    margin-top: -20px;;
+    padding-bottom: 3%;
+    margin-right: 35%;
+    margin-left: 35%;
+    border-radius: 20px;
+    background-color:#A2AEB3 ;
+    
+
+  
+}
