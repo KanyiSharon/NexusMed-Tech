@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onboarding Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">       
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+ 
     <link href="styles.css" rel="stylesheet">
+    <title>Onboarding Page-NexusMed Technologies</title>
+    <!--Google font link-->
 </head>
 <body>
-    <div class="form">
-        <h1 style="color:white;">Are you a...</h1>
-        <button style="
-            color:white;
-            width: 200px;
-            height: 50px;
-            background: #33576E;
-            border-radius: 20px;
-        ">Doctor?</button>
+    <i class="bi bi-hospital onboardingIcon"></i>
+    <div class="Nexus">
+        <h2  class="onboardingTitle"><span style="color:#018abe;">NexusMed</span> Technologies</h2>
+        <h5 class="onboardingSubtitle">Prioritizing patient healthcare.</h5>
+    </div>
+        <div class="form">
+        <h3 style="color:black;">Are you a...</h3>
+
+        <button  class="onboardingBbuttons"> <i class="bi bi-bandaid"></i> Doctor?</button>
         <br>
-        <button style="
-            color:white;
-            width: 200px;
-            height: 50px;
-            background: #33576E;
-            border-radius: 20px;
-        ">Patient?</button>
+        
+        <button style="background-color: #018abe;" class="onboardingBbuttons"> <i class="bi bi-person"></i> Patient?</button>
         <br>
-        <button onclick="window.location.href='login.html';">Already have an account?Login in</button>
+        <button class="alreadyBtn"onclick="window.location.href='login.html';">Already have an account?<span style="color:#018abe;text-decoration:underline; "> Log In</span></button>
     </div>
 </body>
 </html>

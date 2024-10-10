@@ -1,8 +1,9 @@
 body{
-    background-image: linear-gradient(to bottom,#3ebdb4,#fff4ea);
+    background-image:url('background.png');
     background-repeat: no-repeat;
-    height: 100vh;
-}
+    height: 97vh;
+    font-family: 'Times New Roman', sans-serif;}
+
 .form{
     display: flex;
     flex-direction: column;
@@ -15,8 +16,46 @@ body{
     margin-right: 35%;
     margin-left: 35%;
     border-radius: 20px;
-    background-color:#A2AEB3 ;
+    background-color:#ffffff ;
+    box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.2);
+    font-family: 'Times New Roman', sans-serif;}
+
     
 
   
 }
+.icons{
+   font-size:35px;
+}
+ 
+.onboardingBbuttons{
+    color:black;
+    width: 200px;
+    height: 35px;
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #018abe;
+    cursor: pointer;
+    font-family: 'Times New Roman', sans-serif;
+
+    
+}
+
+
+
+/*Onboarding styling*/
+.onboardingIcon{
+    display:flex;
+    justify-content:center;
+    transform: translateY(80px);
+    font-size: 35px;
+}
+.alreadyBtn{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    }
+.Nexus{
+    text-align: center;
+    transform: translateY(75px);
+    }
