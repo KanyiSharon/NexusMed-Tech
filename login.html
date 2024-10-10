@@ -3,51 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login in Page</title>
-    <!--bootstrap form link-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!--stylesheet-->
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        function validateForm() {
-            const email = document.forms["signupForm"]["email"].value;
-            const password = document.forms["signupForm"]["password"].value;
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-            if (!emailPattern.test(email)) {
-                alert("Please enter a valid email address.");
-                return false;
-            }
-
-            if (password.length < 6) {
-                alert("Password must be at least 6 characters long.");
-                return false;
-            }
-
-            return true;
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">       
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <link href="styles.css" rel="stylesheet">
+    <title>Login Page - NexusMed Technologies</title>
+    <style>
+        .transparent-input {
+            background-color: white;
+            border: 1px solid #018abe; /* Adjust the border size and color as needed */
+            width: 200px; /* Ensure the input takes the full width of its container */
+            height: 25px; /* Adjust the height as needed */
+            border-radius: 10px; /* Optional: Add border radius if needed */
+            color: black; /* Text color */
+            font-family: 'Times New Roman', sans-serif; /* Ensure the font matches the rest of the page */
         }
-    </script>
-    
+
+        .loginBtn {
+            color: black;
+            width: 200px;
+            height: 35px;
+            background: #018abe;
+            border-radius: 20px;
+            border: 1px solid #018abe;
+            cursor: pointer;
+            font-family: 'Times New Roman', sans-serif;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(65%);
+            padding-top: 1%;
+            margin-top: -20px;
+            padding-bottom: 3%;
+            margin-right: 35%;
+            margin-left: 35%;
+            border-radius: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.2);
+            font-family: 'Times New Roman', sans-serif;
+        }
+
+        .input-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .input-container .bi {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #018abe;
+        }
+        .input-container .form-control {
+            padding-left: 30px;
+        }
+        .submit-container {
+            text-align: center;
+        }
+        .loginHsIcon {
+            display: block;
+            text-align: center;
+            margin-top: 20px; /* Instead of transform */
+            font-size: 35px;
+            color: black;
+        }
+    </style>
 </head>
-
-
-  <div class="form">
-    <form name="signupForm" method="POST" action="index.php" onsubmit="return validateForm()">
-        <h1 >Login Up</h1>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
-        </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Remember me</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
+<body>
+    <i class="bi bi-hospital loginHsIcon"></i>
+    <div class="Nexus">
+        <h2 class="onboardingTitle"><span style="color:#018abe;">NexusMed</span> Technologies</h2>
+        <h5 class="onboardingSubtitle">Prioritizing patient healthcare.</h5>
+    </div>
+    <div class="form">
+        <form name="signupForm" method="POST" action="index.php" onsubmit="return validateForm()">
+            <h3 style="text-align: center;">Log In</h3>
+            <div class="input-container">
+                <i class="bi bi-at"></i>
+                <input type="email" class="form-control transparent-input" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email address" value="">
+            </div>
+            <div class="input-container">
+                <i class="bi bi-hash"></i>
+                <input type="password" class="form-control transparent-input" id="exampleInputPassword1" placeholder="Enter your password">
+            </div>
+            <div class="submit-container">
+                <button type="submit" class="btn btn-primary loginBtn">Submit</button>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

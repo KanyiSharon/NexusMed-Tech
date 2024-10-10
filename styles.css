@@ -28,7 +28,9 @@ body{
    font-size:35px;
 }
  
-.onboardingBbuttons{
+.onboardingBbuttons,
+.loginBtn
+{
     color:black;
     width: 200px;
     height: 35px;
@@ -59,3 +61,5 @@ body{
     text-align: center;
     transform: translateY(75px);
     }
+    
+/*Login Page*/
