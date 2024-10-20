@@ -23,7 +23,7 @@ body{
     
 
   
-}
+
 .icons{
    font-size:35px;
 }
@@ -46,7 +46,9 @@ body{
 
 
 /*Onboarding styling*/
-.onboardingIcon{
+.onboardingIcon,
+.signupHsIcon
+{
     display:flex;
     justify-content:center;
     transform: translateY(80px);

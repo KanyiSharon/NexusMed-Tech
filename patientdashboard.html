@@ -3,46 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient's Page</title>
-    <!--Bootstrap icon library link-->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">       
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
     <link href="styles.css" rel="stylesheet">
+    <title>Patient Dashboard - NexusMed Technologies</title>
+    <style>
+    .icon-bar {
+    display: flex;
+    transform: translateY(300%);
+    justify-content: flex-end;
+    }
+    
+    .form {
+    width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 0%;
+    }
+    .Nexus {
+        margin-bottom: -5%;
+    }
+    .bi-chat {
+        display: flex;
+        transform: translateY(420%);
+        font-size: 15px;
+    }
+    .icon-spacing {
+    margin-right: 9px; 
+    }
+    textarea {
+        border: 1px solid #018abe;
+        border-radius: 10px;
+    }
+        </style>
 </head>
 <body>
-    <nav>
-        <div class="hamMenu">
-            <i class="bi bi-border-width icons"></i>
-            <i class="bi bi-hospital icons"></i>
-            <i class="bi bi-person-circle icons"></i>
-
-        </div>
-        <div class="offScreenMenu">
-            <ul>
-                <li>View your previous records</li>
-            </ul>
-        </div>
-       </nav> 
-       <main>
-        <h4>Hello there!</h4>
-        <h4>...</h4>
-        <h4>I am Glad have you today</h4>
-    
-    <!--Text area -->
-    <form >
-        <textarea rows="5" cols="150" placeholder="Let's start taking your medical history..."></textarea>
-        <i class="bi bi-plus-circle icons"></i>
-     <div class="icons">   
-    <i class="bi bi-paperclip"></i>
-    <i class="bi bi-mic"></i>
-    <i class="bi bi-camera"></i>
-    <i class="bi bi-send-fill"></i>
+    <i class="bi bi-hospital onboardingIcon"></i>
+    <div  class="Nexus">
+        <h2 class="onboardingTitle"><span style="color:#018abe;">NexusMed</span> Technologies</h2>
+        <h5 class="onboardingSubtitle">Prioritizing patient healthcare.</h5>
     </div>
-    </form>
-    </main>
-   <!--End of text Area-->
-    <script
-         src="patientdashboard.js">
-        
-    </script>
+    <div  class="form">
+        <h4 style="color:black;">Hello There ...I am Glad To Have You Today</h4>
+        <button style="background-color: #018abe;" class="onboardingBbuttons"> <i  class="bi bi-file-medical"></i> View Past Records</button>
+        <br>
+        <div class="textarea-container">
+            <i class="bi bi-chat"></i>
+            <div class="icon-bar">
+                <i class="bi bi-paperclip icon-spacing" title="Add File"></i>
+<i class="bi bi-mic icon-spacing" title="Record Audio"></i>
+<i class="bi bi-camera icon-spacing" title="Take Picture"></i>
+<i class="bi bi-send" title="Send"></i>
+            </div>
+            <textarea rows="5" cols="90" placeholder="Let's start taking your medical records..."></textarea>
+        </div>
+        <br>
+    </div>
+    <script src="patientdashboard.js"></script>
 </body>
 </html>
