@@ -118,41 +118,28 @@
     </div>
     <div class="signup-form">
         <h3 style="color:black;">Sign Up</h3>
-        <form>
+        <form action="connect.php" method="POST">
             <div class="input-container">
                 <i class="bi bi-person"></i>
-                <input type="text" class="form-control transparent-input" id="firstName" placeholder="First Name" required>
+                <input type="text" class="form-control transparent-input" id="firstName" name="firstName" placeholder="First Name" required>
             </div>
             <div class="input-container">
                 <i class="bi bi-person"></i>
-                <input type="text" class="form-control transparent-input" id="lastName" placeholder="Last Name" required>
+                <input type="text" class="form-control transparent-input" id="lastName" name="lastName" placeholder="Last Name" required>
             </div>
             <div class="input-container">
                 <i class="bi bi-telephone"></i>
-                <input type="tel" class="form-control transparent-input" id="phoneNumber" placeholder="Phone Number" required>
-            </div>
-            <div class="input-container">
-                <i class="bi bi-person"></i>
-                <input type="text" class="form-control transparent-input" id="username" placeholder="Enter your username" required>
+                <input type="text" class="form-control transparent-input" id="phone" name="phone" placeholder="Phone Number" required>
             </div>
             <div class="input-container">
                 <i class="bi bi-envelope"></i>
-                <input type="email" class="form-control transparent-input" id="email" placeholder="Enter your email" required>
+                <input type="email" class="form-control transparent-input" id="email" name="email" placeholder="Email" required>
             </div>
             <div class="input-container">
                 <i class="bi bi-lock"></i>
-                <input type="password" class="form-control transparent-input" id="password" placeholder="Enter your password" required>
+                <input type="password" class="form-control transparent-input" id="password" name="password" placeholder="Password" required>
             </div>
-            <div class="input-container">
-                <i class="bi bi-lock"></i>
-                <input type="password" class="form-control transparent-input" id="confirmPassword" placeholder="Confirm your password" required>
-            </div>
-            <div class="invalid-feedback">
-                Please confirm your password.
-            </div>
-            <div class="col-12 submit-container">
-                <button class="btn btn-primary signupBtn" type="submit">Sign Up</button>
-            </div>
+            <button style="background-color: #018abe;" type="submit" class=" onboardingBbuttons">Sign Up</button>
         </form>
     </div>
 </body>
