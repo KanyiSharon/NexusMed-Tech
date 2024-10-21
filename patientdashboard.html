@@ -99,20 +99,90 @@
         <h4 style="color:black;">Hello There ...I am Glad To Have You Today</h4>
         <button style="background-color: #018abe;" class="onboardingBbuttons"> <i class="bi bi-file-medical"></i> View Past Records</button>
         <br>
-        <div class="textarea-container">
-            <textarea rows="5" cols="90" placeholder="Let's start taking your medical records..."></textarea>
-            <div class="icon-bar-left">
-                <i class="bi bi-chat-dots" title="New Chat"></i>
+        <form action="connect.php" method="POST" id="patientForm" enctype="multipart/form-data">
+            <div class="textarea-container">
+                <textarea name="medicalRecords" rows="5" cols="90" placeholder="Let's start taking your medical records..."></textarea>
+                <div class="icon-bar-left">
+                    <i class="bi bi-chat-dots" title="New Chat" onclick="submitForm('newChat')"></i>
+                </div>
+                <div class="icon-bar">
+                    <i class="bi bi-paperclip icon-spacing" title="Add File" onclick="document.getElementById('fileInput').click()"></i>
+                    <i class="bi bi-mic icon-spacing" title="Record Audio" onclick="startRecording()"></i>
+                    <i class="bi bi-camera icon-spacing" title="Take Picture" onclick="takePicture()"></i>
+                    <i class="bi bi-send" title="Send" onclick="submitForm('send')"></i>
+                </div>
             </div>
-            <div class="icon-bar">
-                <i class="bi bi-paperclip icon-spacing" title="Add File"></i>
-                <i class="bi bi-mic icon-spacing" title="Record Audio"></i>
-                <i class="bi bi-camera icon-spacing" title="Take Picture"></i>
-                <i class="bi bi-send" title="Send"></i>
-            </div>
-        </div>
-        <button class="send-button">Send</button>
+            <input type="hidden" name="action" id="actionInput">
+            <input type="file" id="fileInput" name="file" style="display:none;" onchange="submitForm('addFile')">
+            <button type="submit" class="send-button">Send</button>
+        </form>
     </div>
     <script src="patientdashboard.js"></script>
+    <script>
+        function submitForm(action) {
+            document.getElementById('actionInput').value = action;
+            document.getElementById('patientForm').submit();
+        }
+
+        function takePicture() {
+            const video = document.createElement('video');
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.srcObject = stream;
+                    video.play();
+                    document.body.appendChild(video);
+
+                    setTimeout(() => {
+                        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                        video.pause();
+                        stream.getTracks().forEach(track => track.stop());
+                        document.body.removeChild(video);
+
+                        canvas.toBlob(blob => {
+                            const formData = new FormData();
+                            formData.append('file', blob, 'photo.png');
+                            formData.append('action', 'takePicture');
+                            fetch('connect.php', { method: 'POST', body: formData })
+                                .then(response => response.text())
+                                .then(result => console.log(result));
+                        });
+                    }, 3000); // Capture after 3 seconds
+                })
+                .catch(error => console.error('Error accessing camera: ', error));
+        }
+
+        let mediaRecorder;
+        let audioChunks = [];
+
+        function startRecording() {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    mediaRecorder = new MediaRecorder(stream);
+                    mediaRecorder.start();
+
+                    mediaRecorder.addEventListener('dataavailable', event => {
+                        audioChunks.push(event.data);
+                    });
+
+                    mediaRecorder.addEventListener('stop', () => {
+                        const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                        const formData = new FormData();
+                        formData.append('file', audioBlob, 'audio.wav');
+                        formData.append('action', 'recordAudio');
+                        fetch('connect.php', { method: 'POST', body: formData })
+                            .then(response => response.text())
+                            .then(result => console.log(result));
+                    });
+
+                    setTimeout(() => {
+                        mediaRecorder.stop();
+                    }, 5000); // Record for 5 seconds
+                })
+                .catch(error => console.error('Error accessing microphone: ', error));
+        }
+    </script>
 </body>
 </html>

@@ -16,25 +16,66 @@ if ($conn->connect_error) {
 // Check if the request method is POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get data from POST request
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
-    $phone = $_POST['phone'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $medicalRecords = $_POST['medicalRecords'] ?? '';
+    $action = $_POST['action'];
 
-    // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO users (firstName, lastName, phone, email, password) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $firstName, $lastName, $phone, $email, $password);
-
-    // Execute the statement
-    if ($stmt->execute()) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $stmt->error;
+    // Handle different actions
+    switch ($action) {
+        case 'newChat':
+            // Handle new chat action
+            echo "New chat initiated.";
+            break;
+        case 'addFile':
+            // Handle add file action
+            if (isset($_FILES['file'])) {
+                $file = $_FILES['file'];
+                $filePath = 'uploads/' . basename($file['name']);
+                if (move_uploaded_file($file['tmp_name'], $filePath)) {
+                    echo "File uploaded successfully.";
+                } else {
+                    echo "File upload failed.";
+                }
+            }
+            break;
+        case 'recordAudio':
+            // Handle record audio action
+            if (isset($_FILES['file'])) {
+                $file = $_FILES['file'];
+                $filePath = 'uploads/' . basename($file['name']);
+                if (move_uploaded_file($file['tmp_name'], $filePath)) {
+                    echo "Audio recorded successfully.";
+                } else {
+                    echo "Audio recording failed.";
+                }
+            }
+            break;
+        case 'takePicture':
+            // Handle take picture action
+            if (isset($_FILES['file'])) {
+                $file = $_FILES['file'];
+                $filePath = 'uploads/' . basename($file['name']);
+                if (move_uploaded_file($file['tmp_name'], $filePath)) {
+                    echo "Picture taken successfully.";
+                } else {
+                    echo "Picture capture failed.";
+                }
+            }
+            break;
+        case 'send':
+            // Handle send action
+            $stmt = $conn->prepare("INSERT INTO medical_records (record) VALUES (?)");
+            $stmt->bind_param("s", $medicalRecords);
+            if ($stmt->execute()) {
+                echo "Medical record saved successfully.";
+            } else {
+                echo "Error: " . $stmt->error;
+            }
+            $stmt->close();
+            break;
+        default:
+            echo "Unknown action.";
+            break;
     }
-
-    // Close the statement
-    $stmt->close();
 }
 
 // Close the connection
