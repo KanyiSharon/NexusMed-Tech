@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carousel Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NexusMed Technologies landing Page</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
@@ -33,12 +33,38 @@
             object-fit: cover; /* Ensure the image covers the container */
             width: 100%; /* Ensure the image takes the full width of the container */
         }
-        .buttonsDiv {
-            display: flex;
-            justify-content: right;
-            margin-top: -12%;
+        .container {
+            padding: 15px;
         }
-        
+        .heading {
+            color: #018abe;
+        }
+        .buttonsDiv {
+            margin-top: 20px;
+            display: flex;
+            justify-content: left;
+        }
+        .onboardingBbuttons {
+            background-color: #018abe;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .col-md-5 {
+                width: 100%;
+                display: block;
+                margin-bottom: 15px;
+            }
+            .buttonsDiv h6 {
+                text-align: center;
+            }
+            .onboardingBbuttons {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -79,17 +105,19 @@
         </div>
     </div>
     <div class="container">
-        <h3 style="color: #018abe;" class="col-md-5 heading">What we are about</h3>
+        <h3 class="col-md-5 heading">What we are about</h3>
         <p class="col-md-5">This website enables you to securely store and manage medical records for future reference. Patients can also grant doctors access to their records, ensuring seamless and efficient healthcare management.</p>
         <div class="buttonsDiv">
-            <div><h6>Click the button below to signup</h6><div>
+            <div><h6>Click the button below to signup</h6></div>
             <br>
             <div>
-            <button style="background-color: #018abe;" class="onboardingBbuttons" onclick="window.location.href='signup.html';"> Sign Up</button>
-            <div>
+                <button class="onboardingBbuttons" onclick="window.location.href='signup.html';">Sign Up</button>
+            </div>
             <br>
-           <h6>Click the button  below to Login</h6>
-            <button style="background-color: #018abe;" class="onboardingBbuttons" onclick="window.location.href='login.html';">Log In</button>
+            <div>
+            <h6>Click the button below to Login</h6>
+            </div>
+            <button class="onboardingBbuttons" onclick="window.location.href='login.html';">Log In</button>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

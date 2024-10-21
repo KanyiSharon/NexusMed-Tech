@@ -1,37 +1,34 @@
-body{
-    background-image:url('background.png');
+body {
+    background-image: url('background.png');
     background-repeat: no-repeat;
     height: 97vh;
-    font-family: 'Times New Roman', sans-serif;}
+    font-family: 'Times New Roman', sans-serif;
+}
 
-.form{
+.form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     transform: translateY(50%);
     padding-top: 1%;
-    margin-top: -20px;;
+    margin-top: -20px;
     padding-bottom: 3%;
     margin-right: 35%;
     margin-left: 35%;
     border-radius: 20px;
-    background-color:#ffffff ;
+    background-color: #ffffff;
     box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.2);
-    font-family: 'Times New Roman', sans-serif;}
-
-    
-
-  
-
-.icons{
-   font-size:35px;
+    font-family: 'Times New Roman', sans-serif;
 }
- 
+
+.icons {
+    font-size: 35px;
+}
+
 .onboardingBbuttons,
-.loginBtn
-{
-    color:black;
+.loginBtn {
+    color: black;
     width: 200px;
     height: 35px;
     background: white;
@@ -39,29 +36,58 @@ body{
     border: 1px solid #018abe;
     cursor: pointer;
     font-family: 'Times New Roman', sans-serif;
-
-    
 }
 
-
-
-/*Onboarding styling*/
 .onboardingIcon,
-.signupHsIcon
-{
-    display:flex;
-    justify-content:center;
+.signupHsIcon {
+    display: flex;
+    justify-content: center;
     transform: translateY(80px);
     font-size: 35px;
 }
-.alreadyBtn{
+
+.alreadyBtn {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    }
-.Nexus{
+}
+
+.Nexus {
     text-align: center;
     transform: translateY(75px);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .form {
+        margin-right: 25%;
+        margin-left: 25%;
     }
-    
-/*Login Page*/
+}
+
+@media (max-width: 992px) {
+    .form {
+        margin-right: 15%;
+        margin-left: 15%;
+    }
+}
+
+@media (max-width: 768px) {
+    .form {
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+}
+
+@media (max-width: 576px) {
+    .form {
+        margin-right: 5%;
+        margin-left: 5%;
+        padding: 10px;
+    }
+
+    .onboardingBbuttons,
+    .loginBtn {
+        width: 100%;
+    }
+}

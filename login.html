@@ -3,73 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">       
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
     <link href="styles.css" rel="stylesheet">
     <title>Login Page - NexusMed Technologies</title>
     <style>
         .transparent-input {
             background-color: white;
-            border: 1px solid #018abe; /* Adjust the border size and color as needed */
-            width: 200px; /* Ensure the input takes the full width of its container */
-            height: 25px; /* Adjust the height as needed */
-            border-radius: 10px; /* Optional: Add border radius if needed */
-            color: black; /* Text color */
-            font-family: 'Times New Roman', sans-serif; /* Ensure the font matches the rest of the page */
+            border: 1px solid #018abe;
+            width: 200px;
+            height: 25px;
+            border-radius: 20px;
+            padding-left: 30px; /* Add padding to make space for the icon */
         }
-
         .loginBtn {
             color: black;
             width: 200px;
-            height: 35px;
-            background: #018abe;
-            border-radius: 20px;
-            border: 1px solid #018abe;
-            cursor: pointer;
-            font-family: 'Times New Roman', sans-serif;
+            background-color: #018abe;
         }
-
-        .form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transform: translateY(65%);
-            padding-top: 1%;
-            margin-top: -30px;
-            padding-bottom: 3%;
-            margin-right: 35%;
-            margin-left: 35%;
-            border-radius: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.2);
-            font-family: 'Times New Roman', sans-serif;
-        }
-
         .input-container {
             position: relative;
             margin-bottom: 15px;
         }
-        .input-container .bi {
+        .input-container i {
             position: absolute;
             left: 10px;
             top: 50%;
             transform: translateY(-50%);
-            pointer-events: none;
             color: #018abe;
-        }
-        .input-container .form-control {
-            padding-left: 30px;
         }
         .submit-container {
             text-align: center;
         }
-        .loginHsIcon {
-            width: 100%;
-            height: 100;
-            font-size: 35px;
-            color: black;
-            transform: translateY(20%);
+        @media (max-width: 576px) {
+            .transparent-input {
+                width: 100%;
+            }
+            .loginBtn {
+                width: 100%;
+            }
         }
     </style>
 </head>
