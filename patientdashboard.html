@@ -87,6 +87,49 @@
             transform: translateY(-80px);
             font-size: 35px;
     }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 1200px) {
+        .form {
+            margin-right: 25%;
+            margin-left: 25%;
+        }
+    }
+    @media (max-width: 992px) {
+        .form {
+            margin-right: 15%;
+            margin-left: 15%;
+        }
+    }
+    @media (max-width: 768px) {
+        .form {
+            margin-right: 10%;
+            margin-left: 10%;
+        }
+        .icon-bar {
+            top: auto; /* Reset top position */
+            bottom: 5px; /* Move to the bottom */
+            right: 5px; /* Keep it aligned to the right */
+        }
+    }
+    @media (max-width: 576px) {
+        .form {
+            margin-right: 5%;
+            margin-left: 5%;
+            padding: 10px;
+            width: 90%; /* Adjust the width to make the form wider */
+        }
+        .onboardingBbuttons,
+        .loginBtn {
+            width: 100%;
+        }
+        .icon-bar {
+            top: auto; /* Reset top position */
+            bottom: 5px; /* Move to the bottom */
+            left: 5px; /* Align to the left */
+            right: auto; /* Reset right position */
+        }
+    }
     </style>
 </head>
 <body>
